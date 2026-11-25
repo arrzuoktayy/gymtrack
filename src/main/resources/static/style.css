@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff5f8;
+    color: #694d59;
+}
+
+header {
+    background: linear-gradient(135deg, #fce4ec, #fff0f5);
+    padding: 35px;
+    text-align: center;
+    border-bottom: 2px solid #efc8d8;
+}
+
+header h1 {
+    color: #b65d80;
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+header p {
+    color: #946779;
+    font-size: 15px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(182, 93, 128, 0.09);
+    border: 1px solid #f3e1e8;
+    overflow-x: auto;
+}
+
+h2 {
+    color: #b65d80;
+    margin-top: 0;
+    font-size: 23px;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    background: #fff9fb;
+    color: #694d59;
+    border: 1px solid #efd6df;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #b65d80;
+    box-shadow: 0 0 0 3px #fce4ec;
+}
+
+input::placeholder {
+    color: #a48a95;
+}
+
+button {
+    background: #b65d80;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #9e4c6d;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #f3e1e8;
+}
+
+th {
+    background: #fce4ec;
+    color: #99516d;
+}
+
+tbody tr:hover {
+    background: #fff5f8;
+}
+
+.delete {
+    background: #fce4ec;
+    color: #b65d80;
+    margin: 0;
+    width: auto;
+    padding: 9px 16px;
+    border-radius: 8px;
+}
+
+.delete:hover {
+    background: #b65d80;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #946779;
+    font-size: 13px;
+}
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    min-height: 48px;
+    cursor: pointer;
+}

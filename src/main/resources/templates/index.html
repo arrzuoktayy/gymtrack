@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymTrack - Antrenman Takip</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>GymTrack</h1>
+    <p>Kişisel Antrenman Kayıt Sistemi</p>
+</header>
+
+<main>
+    <section class="card">
+        <h2>Yeni Antrenman Ekle</h2>
+
+        <form th:action="@{/kaydet}"
+              th:object="${antrenman}" method="post">
+
+            <label>Egzersiz Adı</label>
+            <input type="text" th:field="*{egzersizAdi}"
+                   placeholder="Egzersiz adını giriniz" required>
+
+            <label>Kas Grubu</label>
+            <select th:field="*{kasGrubu}" required>
+                <option value="">Seçiniz</option>
+                <option value="Bacak">Bacak</option>
+                <option value="Kalça">Kalça</option>
+                <option value="Sırt">Sırt</option>
+                <option value="Göğüs">Göğüs</option>
+                <option value="Omuz">Omuz</option>
+                <option value="Kol">Kol</option>
+                <option value="Karın">Karın</option>
+                <option value="Tüm Vücut">Tüm Vücut</option>
+            </select>
+
+            <label>Set Sayısı</label>
+            <input type="number" th:field="*{setSayisi}"
+                   min="1" required>
+
+            <label>Tekrar Sayısı</label>
+            <input type="number" th:field="*{tekrarSayisi}"
+                   min="1" required>
+
+            <button type="submit">Antrenmanı Kaydet</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Kayıtlı Antrenmanlar</h2>
+
+        <p>Toplam kayıt:
+            <strong th:text="${#lists.size(antrenmanlar)}">0</strong>
+        </p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Egzersiz</th>
+                <th>Kas Grubu</th>
+                <th>Set</th>
+                <th>Tekrar</th>
+                <th>İşlem</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="a : ${antrenmanlar}">
+                <td th:text="${a.id}"></td>
+                <td th:text="${a.egzersizAdi}"></td>
+                <td th:text="${a.kasGrubu}"></td>
+                <td th:text="${a.setSayisi}"></td>
+                <td th:text="${a.tekrarSayisi}"></td>
+                <td>
+                    <form th:action="@{/sil/{id}(id=${a.id})}"
+                          method="post">
+                        <button class="delete" type="submit">
+                            Sil
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p th:if="${#lists.isEmpty(antrenmanlar)}">
+            Henüz antrenman kaydı bulunmuyor.
+        </p>
+    </section>
+</main>
+
+<footer>
+    GymTrack | Spring Boot & H2 Database
+</footer>
+
+</body>
+</html>
